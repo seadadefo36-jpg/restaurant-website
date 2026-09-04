@@ -1,1 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience luxury dining at its finest. Premium international cuisine, exquisite ambiance, and exceptional service.">
+    <meta name="keywords" content="luxury restaurant, fine dining, international cuisine, reservations, catering">
+    <meta property="og:title" content="Luxe Dining - Premium Restaurant">
+    <meta property="og:description" content="Experience world-class cuisine and exceptional service">
+    <meta property="og:type" content="business.business">
+    
+    <title>Luxe Dining - Premium International Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Luxe Dining",
+        "image": "images/hero/main.jpg",
+        "description": "Premium international fine dining restaurant",
+        "telephone": "+1-555-0123",
+        "email": "reservations@luxedining.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Gourmet Avenue",
+            "addressLocality": "New York",
+            "addressRegion": "NY",
+            "postalCode": "10001",
+            "addressCountry": "US"
+        },
+        "priceRange": "$$$",
+        "cuisine": "International",
+        "servesCuisine": ["French", "Italian", "Contemporary"]
+    }
+    </script>
+</head>
+<body>
+    <!-- LOADING SCREEN - Single reliable system -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <h1 class="loading-logo">LD</h1>
+            <p class="loading-text">Luxe Dining</p>
+        </div>
+    </div>
+
+    <!-- GALLERY LIGHTBOX -->
+    <div class="gallery-lightbox" id="galleryLightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery">×</button>
+            <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous image">❮</button>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="Gallery image" />
+            <button class="lightbox-nav next" id="lightboxNext" aria-label="Next image">❯</button>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button class="cart-close" id="cartClose" aria-label="Close cart">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary" id="checkoutBtn" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- CART TOGGLE BUTTON -->
+    <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- TOP HEADER INFO -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-info">
+                <div class="info-item">
+                    <span class="icon">📞</span>
+                    <span>+1 (212) 555-0147</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">📧</span>
+                    <span>reservations@luxedining.com</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <span>123 Gourmet Avenue, New York, NY</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">🕐</span>
+                    <span>Mon-Sun: 5PM - 11PM</span>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://facebook.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                <a href="https://twitter.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter">tw</a>
+                <a href="https://youtube.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-text">LD</span>
+                <span class="logo-name">Luxe Dining</span>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" id="navReserveBtn">Reserve</button>
+                <button class="btn btn-primary" id="navOrderBtn">Order Online</button>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Experience Culinary Excellence</h1>
+            <p class="hero-subtitle">Discover world-class cuisine in an atmosphere of pure elegance</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-large" id="heroBtnReserve">Book a Table</button>
+                <button class="btn btn-secondary btn-large" id="heroBtnMenu">View Menu</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img class="hero-img" src="images/hero/main.jpg" alt="Premium dining room with elegant ambiance" loading="lazy" />
+            <noscript>
+                <div class="hero-placeholder">🍽️ Premium Dining Experience</div>
+            </noscript>
+        </div>
+    </section>
+
+    <!-- FEATURED DISHES -->
+    <section class="featured-dishes" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Dishes</h2>
+                <p>Our most celebrated creations</p>
+            </div>
+
+            <div class="dishes-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card" data-dish-id="1" data-dish-name="Pan-Seared Duck Breast" data-dish-price="48">
+                    <div class="dish-image">
+                        <img src="images/food/duck.jpg" alt="Pan-Seared Duck Breast" loading="lazy" />
+                        <noscript><div class="dish-placeholder">🥩</div></noscript>
+                        <span class="dish-badge">Chef Special</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Pan-Seared Duck Breast</h3>
+                        <p>Heritage grain fed duck with cherry gastrique and seasonal vegetables</p>
+                        <div class="dish-meta">
+                            <span class="rating">★★★★★ (48)</span>
+                            <span class="price">$48</span>
+                        </div>
+                        <div class="dish-details">
+                            <span class="calories">420 cal</span>
+                            <span class="spicy-badge">🌶️ Mild</span>
+                        </div>
+                        <button class="btn btn-small add-to-cart" data-dish-id="1">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card" data-dish-id="2" data-dish-name="Atlantic Lobster Tail" data-dish-price="62">
+                    <div class="dish-image">
+                        <img src="images/food/lobster.jpg" alt="Atlantic Lobster Tail" loading="lazy" />
+                        <noscript><div class="dish-placeholder">🦞</div></noscript>
+                        <span class="dish-badge">Today's Special</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Atlantic Lobster Tail</h3>
+                        <p>Fresh Maine lobster with truffle butter and asparagus foam</p>
+                        <div class="dish-meta">
+                            <span class="rating">★★★★★ (52)</span>
+                            <span class="price">$62</span>
+                        </div>
+                        <div class="dish-details">
+                            <span class="calories">380 cal</span>
+                            <span class="spicy-badge">🌶️ None</span>
+                        </div>
+                        <button class="btn btn-small add-to-cart" data-dish-id="2">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card" data-dish-id="3" data-dish-name="Handmade Ravioli" data-dish-price="32">
+                    <div class="dish-image">
+                        <img src="images/food/ravioli.jpg" alt="Handmade Ravioli" loading="lazy" />
+                        <noscript><div class="dish-placeholder">🍝</div></noscript>
+                        <span class="dish-badge">Popular</span>
+                    </div>
+                    <div class="dish-info">
+                        <h3>Handmade Ravioli</h3>
+                        <p>Ricotta and spinach filling with brown butter sage sauce</p>
+                        <div class="dish-meta">
+                            <span class="rating">★★★★★ (61)</span>
+                            <span class="price">$32</span>
+                        </div>
+                        <div class="dish-details">
+                            <span class="calories">450 cal</span>
+                            <span class="spicy-badge">🌶️ None</span>
+                        </div>
+                        <button class="btn btn-small add-to-cart" data-dish-id="3">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHEF RECOMMENDATION -->
+    <section class="chef-section">
+        <div class="container">
+            <div class="chef-content">
+                <div class="chef-image">
+                    <img src="images/chef/marco.jpg" alt="Chef Marco Battaglia" loading="lazy" />
+                    <noscript><div class="chef-placeholder">👨‍🍳</div></noscript>
+                </div>
+                <div class="chef-info">
+                    <span class="section-label">Meet Our Chef</span>
+                    <h2>Chef Marco Battaglia</h2>
+                    <p class="chef-title">Executive Chef & Founder</p>
+                    <p class="chef-bio">
+                        With over 25 years of culinary excellence across Michelin-starred establishments in Europe and America, Chef Battaglia brings unparalleled expertise and passion to every plate. His philosophy centers on sourcing the finest ingredients and respecting traditional techniques while embracing contemporary innovation.
+                    </p>
+                    <p class="chef-specialty"><strong>Signature Dish:</strong> "Heritage" — A multi-course journey through Italian tradition with modern interpretation</p>
+                    <button class="btn btn-primary" id="chefMenuBtn">Explore Full Menu</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFERS -->
+    <section class="special-offers">
+        <div class="container">
+            <div class="section-header">
+                <h2>Special Offers</h2>
+                <p>Exclusive deals for our valued guests</p>
+            </div>
+
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-icon">🎉</div>
+                    <h3>20% Off</h3>
+                    <p>First-time reservation</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">🎂</div>
+                    <h3>Weekend Specials</h3>
+                    <p>Friday & Saturday premium menu</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Family Combo</h3>
+                    <p>4 courses for the family</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">🚚</div>
+                    <h3>Free Delivery</h3>
+                    <p>Orders over $75</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">🍂</div>
+                    <h3>Seasonal Menu</h3>
+                    <p>Updated weekly selections</p>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">🎁</div>
+                    <h3>Gift Cards</h3>
+                    <p>Perfect for any occasion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Luxe Dining</h2>
+                <p>The perfect blend of tradition and innovation</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Fresh Ingredients</h3>
+                    <p>Sourced daily from local organic suppliers and premium distributors</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Expert Chefs</h3>
+                    <p>Michelin-trained culinary masters with decades of experience</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Service</h3>
+                    <p>Exceptional timing without compromising on quality or presentation</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">✨</div>
+                    <h3>Luxury Ambiance</h3>
+                    <p>Elegant dining atmosphere designed for unforgettable experiences</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🥬</div>
+                    <h3>Organic Focus</h3>
+                    <p>Commitment to sustainable, health-conscious culinary practices</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <h3>Premium Service</h3>
+                    <p>Attentive staff trained to exceed expectations at every moment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY PREVIEW -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>Glimpses of elegance and culinary artistry</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-gallery-index="0" data-gallery-title="Signature Dish">
+                    <img src="images/gallery/dish-1.jpg" alt="Signature Dish" loading="lazy" />
+                    <noscript><div class="gallery-placeholder">🍽️</div></noscript>
+                    <div class="gallery-overlay">
+                        <p>Signature Dish</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-gallery-index="1" data-gallery-title="Dining Room">
+                    <img src="images/gallery/interior-1.jpg" alt="Elegant dining room" loading="lazy" />
+                    <noscript><div class="gallery-placeholder">🏛️</div></noscript>
+                    <div class="gallery-overlay">
+                        <p>Dining Room</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-gallery-index="2" data-gallery-title="Open Kitchen">
+                    <img src="images/gallery/kitchen-1.jpg" alt="Open kitchen area" loading="lazy" />
+                    <noscript><div class="gallery-placeholder">👨‍🍳</div></noscript>
+                    <div class="gallery-overlay">
+                        <p>Open Kitchen</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-gallery-index="3" data-gallery-title="Garden Fresh">
+                    <img src="images/gallery/salad-1.jpg" alt="Fresh garden vegetables" loading="lazy" />
+                    <noscript><div class="gallery-placeholder">🥗</div></noscript>
+                    <div class="gallery-overlay">
+                        <p>Garden Fresh</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-gallery-index="4" data-gallery-title="Intimate Moments">
+                    <img src="images/gallery/ambiance-1.jpg" alt="Intimate dining setup" loading="lazy" />
+                    <noscript><div class="gallery-placeholder">🕯️</div></noscript>
+                    <div class="gallery-overlay">
+                        <p>Intimate Moments</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-gallery-index="5" data-gallery-title="Wine Selection">
+                    <img src="images/gallery/wine-1.jpg" alt="Wine collection" loading="lazy" />
+                    <noscript><div class="gallery-placeholder">🍷</div></noscript>
+                    <div class="gallery-overlay">
+                        <p>Wine Selection</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS -->
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>Guest Testimonials</h2>
+                <p>What our valued guests are saying</p>
+            </div>
+
+            <div class="reviews-wrapper">
+                <div class="reviews-slider" id="reviewsSlider">
+                    <div class="review-card">
+                        <div class="review-avatar">👨‍💼</div>
+                        <div class="review-content">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">"An absolutely unforgettable dining experience. The attention to detail is extraordinary, and every dish was a masterpiece. Chef Battaglia's innovation is truly remarkable."</p>
+                            <p class="review-author">- Alexander Bennett</p>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-avatar">👩‍🦰</div>
+                        <div class="review-content">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">"I've dined at many Michelin-starred restaurants, and Luxe Dining stands among the finest. The service is impeccable, and the atmosphere is simply magical."</p>
+                            <p class="review-author">- Sophia Anderson</p>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-avatar">👨‍🦱</div>
+                        <div class="review-content">
+                            <div class="review-rating">★★★★★</div>
+                            <p class="review-text">"Perfect for our anniversary celebration. Every moment felt special, from the welcome to the final dessert. This is destination dining at its finest."</p>
+                            <p class="review-author">- Daniel Williams</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-controls">
+                    <button class="review-nav prev" id="reviewPrevBtn" aria-label="Previous review">❮</button>
+                    <button class="review-nav next" id="reviewNextBtn" aria-label="Next review">❯</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM SECTION -->
+    <section class="instagram-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Follow Us On Instagram</h2>
+                <p>@luxediningnyc</p>
+            </div>
+
+            <div class="instagram-grid">
+                <a href="https://instagram.com/luxediningnyc" class="instagram-item" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+                    <img src="images/instagram/post-1.jpg" alt="Instagram post" loading="lazy" />
+                    <noscript><div class="insta-placeholder">📸</div></noscript>
+                </a>
+                <a href="https://instagram.com/luxediningnyc" class="instagram-item" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+                    <img src="images/instagram/post-2.jpg" alt="Instagram post" loading="lazy" />
+                    <noscript><div class="insta-placeholder">🍷</div></noscript>
+                </a>
+                <a href="https://instagram.com/luxediningnyc" class="instagram-item" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+                    <img src="images/instagram/post-3.jpg" alt="Instagram post" loading="lazy" />
+                    <noscript><div class="insta-placeholder">🍽️</div></noscript>
+                </a>
+                <a href="https://instagram.com/luxediningnyc" class="instagram-item" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+                    <img src="images/instagram/post-4.jpg" alt="Instagram post" loading="lazy" />
+                    <noscript><div class="insta-placeholder">👨‍🍳</div></noscript>
+                </a>
+                <a href="https://instagram.com/luxediningnyc" class="instagram-item" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+                    <img src="images/instagram/post-5.jpg" alt="Instagram post" loading="lazy" />
+                    <noscript><div class="insta-placeholder">🥂</div></noscript>
+                </a>
+                <a href="https://instagram.com/luxediningnyc" class="instagram-item" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+                    <img src="images/instagram/post-6.jpg" alt="Instagram post" loading="lazy" />
+                    <noscript><div class="insta-placeholder">🌹</div></noscript>
+                </a>
+            </div>
+
+            <a href="https://instagram.com/luxediningnyc" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Follow @luxediningnyc</a>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Menu</h2>
+                <p>Crafted with passion and precision</p>
+            </div>
+
+            <div class="menu-controls">
+                <input type="text" id="searchBox" class="search-box" placeholder="Search dishes..." aria-label="Search menu items">
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="appetizer">Appetizers</button>
+                    <button class="filter-btn" data-filter="entree">Entrées</button>
+                    <button class="filter-btn" data-filter="pasta">Pasta</button>
+                    <button class="filter-btn" data-filter="seafood">Seafood</button>
+                    <button class="filter-btn" data-filter="dessert">Desserts</button>
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Join Our Newsletter</h2>
+                <p>Subscribe for exclusive offers and culinary events</p>
+                <form class="newsletter-form" id="newsletterForm" novalidate>
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                    <div class="form-message" id="newsletterMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Luxe Dining</h2>
+                <p>A legacy of culinary excellence</p>
+            </div>
+
+            <!-- Restaurant Story -->
+            <div class="story-section">
+                <h3>Our Story</h3>
+                <p>Founded in 1998 by Chef Marco Battaglia, Luxe Dining was born from a vision to create a sanctuary for fine dining enthusiasts. What began as a modest 40-seat establishment has evolved into one of the most sought-after restaurants in the city, renowned for innovative cuisine and exceptional hospitality.</p>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="mission-vision">
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>To deliver extraordinary culinary experiences that transcend expectations, using the finest ingredients, honoring traditional techniques, and embracing creative innovation with unwavering commitment to guest satisfaction.</p>
+                </div>
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>To become a globally recognized destination for fine dining, setting new standards in culinary excellence while maintaining our commitment to sustainable practices and community engagement.</p>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <h3>Our Journey</h3>
+                <div class="timeline-items">
+                    <div class="timeline-item">
+                        <span class="timeline-year">1998</span>
+                        <p>Restaurant Founded</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2008</span>
+                        <p>First Michelin Star</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2015</span>
+                        <p>Expanded Wine Program</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2020</span>
+                        <p>Sustainable Kitchen Initiative</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2024</span>
+                        <p>International Recognition</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team -->
+            <div class="team-section">
+                <h3>Meet Our Team</h3>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="images/team/chef-1.jpg" alt="Chef Marco Battaglia" loading="lazy" />
+                        <noscript><div class="team-avatar">👨‍🍳</div></noscript>
+                        <h4>Chef Marco Battaglia</h4>
+                        <p>Executive Chef & Founder</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="images/team/sommelier.jpg" alt="Isabella Rossi" loading="lazy" />
+                        <noscript><div class="team-avatar">👩‍💼</div></noscript>
+                        <h4>Isabella Rossi</h4>
+                        <p>Head Sommelier</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="images/team/manager.jpg" alt="David Park" loading="lazy" />
+                        <noscript><div class="team-avatar">👨‍💼</div></noscript>
+                        <h4>David Park</h4>
+                        <p>Restaurant Manager</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="images/team/pastry-chef.jpg" alt="Thomas Weber" loading="lazy" />
+                        <noscript><div class="team-avatar">👨‍🍳</div></noscript>
+                        <h4>Thomas Weber</h4>
+                        <p>Pastry Chef</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards -->
+            <div class="awards-section">
+                <h3>Recognition & Awards</h3>
+                <div class="awards-grid">
+                    <div class="award-item">🏆 Michelin Star (2008-Present)</div>
+                    <div class="award-item">⭐ James Beard Award (2015)</div>
+                    <div class="award-item">👑 Best Restaurant NYC (2019)</div>
+                    <div class="award-item">🌍 World's Best Restaurants (2021)</div>
+                    <div class="award-item">💚 Sustainability Award (2022)</div>
+                    <div class="award-item">🎖️ Excellence in Service (2023)</div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="25">0</div>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="50">0</div>
+                    <p>Professional Staff</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="100000">0</div>
+                    <p>Happy Guests</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="40">0</div>
+                    <p>Awards & Accolades</p>
+                </div>
+            </div>
+
+            <!-- Sustainability -->
+            <div class="sustainability-section">
+                <h3>Our Commitment to Sustainability</h3>
+                <div class="sustainability-items">
+                    <div class="sustainability-item">
+                        <span class="sust-icon">🌱</span>
+                        <p><strong>Organic Ingredients:</strong> Over 85% of our ingredients are sourced from certified organic suppliers</p>
+                    </div>
+                    <div class="sustainability-item">
+                        <span class="sust-icon">♻️</span>
+                        <p><strong>Eco-Friendly Packaging:</strong> 100% compostable takeout containers and recyclable materials</p>
+                    </div>
+                    <div class="sustainability-item">
+                        <span class="sust-icon">🌍</span>
+                        <p><strong>Local Sourcing:</strong> 90% of produce comes from farms within 50 miles</p>
+                    </div>
+                    <div class="sustainability-item">
+                        <span class="sust-icon">💧</span>
+                        <p><strong>Waste Reduction:</strong> Zero waste to landfill initiative, 60% waste reduction achieved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & RESERVATION -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Reserve Your Table</h2>
+                <p>We look forward to welcoming you</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Reservation Form -->
+                <div class="form-container">
+                    <h3>Make a Reservation</h3>
+                    <form class="reservation-form" id="reservationForm" novalidate>
+                        <div id="reservationMessage" class="form-message"></div>
+                        
+                        <div class="form-group">
+                            <label for="resName">Full Name *</label>
+                            <input type="text" id="resName" name="fullName" required aria-label="Full name">
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="resEmail">Email *</label>
+                            <input type="email" id="resEmail" name="email" required aria-label="Email address">
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="resPhone">Phone *</label>
+                            <input type="tel" id="resPhone" name="phone" required aria-label="Phone number">
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resGuests">Number of Guests *</label>
+                                <select id="resGuests" name="guests" required aria-label="Number of guests">
+                                    <option value="">Select guests</option>
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="5">5 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="7+">7+ Guests</option>
+                                </select>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="resDate">Date *</label>
+                                <input type="date" id="resDate" name="date" required aria-label="Reservation date">
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resTime">Time *</label>
+                                <input type="time" id="resTime" name="time" required aria-label="Reservation time">
+                                <span class="form-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="resRequests">Special Requests</label>
+                            <textarea id="resRequests" name="requests" rows="4" placeholder="Any dietary restrictions or special occasions?" aria-label="Special requests"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Reserve Table</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="info-block">
+                        <h4>📞 Phone</h4>
+                        <p><a href="tel:+15550147">+1 (212) 555-0147</a></p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>📧 Email</h4>
+                        <p><a href="mailto:reservations@luxedining.com">reservations@luxedining.com</a></p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>📍 Address</h4>
+                        <p>123 Gourmet Avenue<br>New York, NY 10001<br>United States</p>
+                    </div>
+
+                    <div class="info-block">
+                        <h4>🕐 Hours</h4>
+                        <p>Monday - Sunday: 5:00 PM - 11:00 PM<br>
+                        Private events available</p>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="faq-section">
+                        <h4>Frequently Asked Questions</h4>
+                        <div class="faq-items">
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">How far in advance should I book?</button>
+                                <div class="faq-answer">We recommend booking at least 2-3 weeks in advance, especially for weekends. Premium dates may require more notice.</div>
+                            </div>
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">Do you accommodate dietary restrictions?</button>
+                                <div class="faq-answer">Absolutely. Please note any dietary preferences or restrictions when making your reservation, and our chefs will create special preparations.</div>
+                            </div>
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">Do you offer private events?</button>
+                                <div class="faq-answer">Yes! We offer private dining experiences for special occasions. Contact us directly for event inquiries and customized menus.</div>
+                            </div>
+                            <div class="faq-item">
+                                <button type="button" class="faq-question">What is your dress code?</button>
+                                <div class="faq-answer">Smart casual to business attire. We maintain an upscale atmosphere, and we ask that guests dress accordingly.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Google Map Placeholder -->
+            <div class="map-section">
+                <h3>Find Us</h3>
+                <div class="map-placeholder">
+                    <div class="map-content">
+                        <span>🗺️</span>
+                        <p>123 Gourmet Avenue, New York, NY</p>
+                        <p style="font-size: 0.9em; color: #666;">Google Maps Integration</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="message-section">
+                <h3>Send us a Message</h3>
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div id="contactMessage" class="form-message"></div>
+                    
+                    <div class="form-group">
+                        <label for="contactName">Name *</label>
+                        <input type="text" id="contactName" name="name" required aria-label="Your name">
+                        <span class="form-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email *</label>
+                        <input type="email" id="contactEmail" name="email" required aria-label="Your email">
+                        <span class="form-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject">Subject *</label>
+                        <input type="text" id="contactSubject" name="subject" required aria-label="Message subject">
+                        <span class="form-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMsg">Message *</label>
+                        <textarea id="contactMsg" name="message" rows="5" required aria-label="Your message"></textarea>
+                        <span class="form-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 404 ERROR PAGE (Hidden by default) -->
+    <section class="error-404" id="error404" style="display: none;">
+        <div class="container">
+            <div class="error-content">
+                <h1 class="error-number">404</h1>
+                <h2>Page Not Found</h2>
+                <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
+                <button class="btn btn-primary" onclick="window.location.href='#home'">Back to Home</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Luxe Dining</h4>
+                    <p>Experience culinary excellence in an atmosphere of pure elegance. Award-winning cuisine, exceptional service, and unforgettable memories.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Menu Categories</h4>
+                    <ul>
+                        <li><a href="#menu">Appetizers</a></li>
+                        <li><a href="#menu">Main Courses</a></li>
+                        <li><a href="#menu">Desserts</a></li>
+                        <li><a href="#menu">Wine List</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 <a href="tel:+15550123">+1 (555) 0123</a><br>
+                    📧 <a href="mailto:reservations@luxedining.com">reservations@luxedining.com</a><br>
+                    📍 123 Gourmet Avenue<br>
+                    New York, NY 10001</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="https://instagram.com/luxediningnyc" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <p class="copyright">&copy; 2026 Luxe Dining. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
