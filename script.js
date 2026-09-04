@@ -730,7 +730,7 @@ function displayMenuItems(items) {
     menuGrid.innerHTML = items.map(item => `
         <div class="dish-card" data-dish-id="${item.id}" data-dish-name="${escapeHtml(item.name)}" data-dish-price="${item.price}">
             <div class="dish-image">
-                <img src="images/menu/${item.category}/${item.id}.jpg" alt="${escapeHtml(item.name)}" loading="lazy" />
+                <img src="Images/Menu/${item.category}/${item.id}.jpg" alt="${escapeHtml(item.name)}" loading="lazy" />
                 <span class="dish-badge">${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
             </div>
             <div class="dish-info">
