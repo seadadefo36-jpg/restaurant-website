@@ -2291,6 +2291,89 @@ body {
         font-size: 1.05rem;
     }
 }
+/* ============================================
+   DESKTOP TYPOGRAPHY SIZE FIX
+   Keeps navigation unchanged
+   ============================================ */
+
+@media (min-width: 769px) {
+
+    /* Main headings */
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    /* Normal text */
+    p {
+        font-size: 0.95rem;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    /* Section descriptions */
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    /* Dish cards */
+    .dish-info p {
+        font-size: 0.9rem;
+    }
+
+    /* Special offers */
+    .offer-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Features */
+    .feature-item p {
+        font-size: 0.9rem;
+    }
+
+    /* Chef */
+    .chef-bio,
+    .chef-specialty {
+        font-size: 0.95rem;
+    }
+
+    /* Reviews */
+    .review-text {
+        font-size: 0.95rem;
+    }
+
+    /* About */
+    .story-section p,
+    .mission p,
+    .vision p {
+        font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.9rem;
+    }
+}
+
 
 /* Print styles */
 @media print {
