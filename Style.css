@@ -2211,7 +2211,87 @@ a {
 html,
 body {
     overflow-x: hidden;
+
 }
+/* ============================================
+   DESKTOP / TABLET STABILITY FIX
+   ============================================ */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    min-width: 320px;
+}
+
+/* Prevent desktop navigation from becoming too wide */
+@media (min-width: 769px) {
+
+    .nav-links {
+        gap: clamp(1rem, 2vw, 2.5rem);
+    }
+
+    .nav-buttons {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 1.5vw, 1.3rem);
+    }
+}
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-buttons {
+        gap: 0.75rem;
+    }
+
+    .btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        gap: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.7rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+}
+
 /* Print styles */
 @media print {
     .navbar, .cart-toggle, .scroll-to-top, .footer {
