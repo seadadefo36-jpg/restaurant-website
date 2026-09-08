@@ -2442,4 +2442,128 @@ body {
         display: none;
     }
 }
+/* ============================================
+   LUXE DINING - CHROME DESKTOP SITE FONT FIX
+   ============================================ */
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Keep heading font consistent */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+}
+
+/* Keep body elements on the correct font */
+p,
+a,
+button,
+input,
+select,
+textarea,
+label {
+    font-family: var(--body-font);
+}
+
+/* Prevent form controls from becoming unusually large */
+button,
+input,
+select,
+textarea {
+    font-size: 1rem;
+}
+
+/* Desktop typography */
+@media (min-width: 769px) {
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile typography */
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+}
 
